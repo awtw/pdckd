@@ -35,8 +35,8 @@ onMounted(() => {
           <div class="mr-auto place-self-center lg:col-span-7">
               <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">兒童腹膜透析預測模型</h1>
               <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">From checkout to global sales tax compliance, companies around the world use Flowbite to simplify their payment stack.</p>
-              <a href="#" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                  Get started
+              <a href="#section01" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                  開始測驗 
                   <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
               </a>
             
@@ -46,7 +46,7 @@ onMounted(() => {
           </div>                
       </div>
   </section>
-  <section class="bg-white dark:bg-gray-900">
+  <section class="bg-white dark:bg-gray-900" id="section01">
       <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
           <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
               <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">情境模擬專區</h2>
@@ -91,7 +91,7 @@ onMounted(() => {
                       </div>
                       <div class="flex items-center space-x-4">
                           <!-- Modal toggle -->
-                        <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                        <button data-modal-target="Simulation" data-modal-toggle="Simulation" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                           Toggle modal
                         </button>
                       </div>
@@ -106,34 +106,135 @@ onMounted(() => {
       </div>
   </section>
   <section class="bg-white dark:bg-gray-900">
-      <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
-          <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
+      <div class="gap-16 items-start py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
+          <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400 ">
               <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">公式計算</h2>
               <p class="mb-4">We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick, but big enough to deliver the scope you want at the pace you need. Small enough to be simple and quick, but big enough to deliver the scope you want at the pace you need.</p>
               <p>We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick.</p>
           </div>
-          <div class="grid grid-cols-2 gap-4 mt-8">
+          <!-- <div class="grid grid-cols-2 gap-4 mt-8">
               <img class="w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png" alt="office content 1">
               <img class="mt-4 w-full lg:mt-10 rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png" alt="office content 2">
-          </div>
+          </div> -->
+          <form action="#">
+                <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-6">
+                    <div>
+                        <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sex</label>
+                        <input type="text" name="first-name" id="first-name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="Helene" placeholder="Ex. John" required="">
+                    </div>
+                    <div class="w-full">
+                        <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">PDage</label>
+                        <input type="text" name="last-name" id="last-name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="Engels" placeholder="Ex. Doe" required="">
+                    </div>
+                    <div>
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">BW</label>
+                        <input type="password" name="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="" placeholder="•••••••••">
+                    </div>                        
+                    <div>
+                        <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">peritonitits</label>
+                        <input type="password" name="confirm-password" id="confirm-password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="" placeholder="•••••••••">
+                    </div>
+                    <div>
+                        <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Exit</label>
+                        <input type="text" name="first-name" id="first-name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="Helene" placeholder="Ex. John" required="">
+                    </div>
+                    <div class="w-full">
+                        <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">PDuration</label>
+                        <input type="text" name="last-name" id="last-name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="Engels" placeholder="Ex. Doe" required="">
+                    </div>
+                    <div>
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">aWCCR</label>
+                        <input type="password" name="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="" placeholder="•••••••••">
+                    </div>                        
+                    <div>
+                        <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">bKTV</label>
+                        <input type="password" name="confirm-password" id="confirm-password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="" placeholder="•••••••••">
+                    </div>
+                    <div>
+                        <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">underly5</label>
+                        <input type="password" name="confirm-password" id="confirm-password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="" placeholder="•••••••••">
+                    </div>
+                    <div>
+                        <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">periRa2</label>
+                        <input type="text" name="first-name" id="first-name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="Helene" placeholder="Ex. John" required="">
+                    </div>
+                    <div class="w-full">
+                        <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ENDnew2</label>
+                        <input type="text" name="last-name" id="last-name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="Engels" placeholder="Ex. Doe" required="">
+                    </div>
+                    <div>
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ENDnew3</label>
+                        <input type="password" name="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="" placeholder="•••••••••">
+                    </div>                        
+                    <div>
+                        <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">bKTV</label>
+                        <input type="password" name="confirm-password" id="confirm-password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="" placeholder="•••••••••">
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <!-- Modal toggle -->
+                <button data-modal-target="Simulation" data-modal-toggle="Simulation" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                    計算風險
+                </button>
+                </div>
+            </form>
       </div>
   </section>
   <section class="bg-white dark:bg-gray-900">
       <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
-          <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-              <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">精準基因分析</h2>
-              <p class="mb-4">We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick, but big enough to deliver the scope you want at the pace you need. Small enough to be simple and quick, but big enough to deliver the scope you want at the pace you need.</p>
-              <p>We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick.</p>
-          </div>
+          
           <div class="grid grid-cols-2 gap-4 mt-8">
               <img class="w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png" alt="office content 1">
               <img class="mt-4 w-full lg:mt-10 rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png" alt="office content 2">
           </div>
+          <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
+              <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">精準基因分析</h2>
+              <form action="#">
+                <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-6">
+                    <div>
+                        <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sex</label>
+                        <input type="text" name="first-name" id="first-name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="Helene" placeholder="Ex. John" required="">
+                    </div>
+                    <div class="w-full">
+                        <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">PDage</label>
+                        <input type="text" name="last-name" id="last-name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="Engels" placeholder="Ex. Doe" required="">
+                    </div>
+                    <div>
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">BW</label>
+                        <input type="password" name="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="" placeholder="•••••••••">
+                    </div>                        
+                    <div>
+                        <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">peritonitits</label>
+                        <input type="password" name="confirm-password" id="confirm-password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="" placeholder="•••••••••">
+                    </div>
+                    <div>
+                        <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Exit</label>
+                        <input type="text" name="first-name" id="first-name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="Helene" placeholder="Ex. John" required="">
+                    </div>
+                    <div class="w-full">
+                        <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">PDuration</label>
+                        <input type="text" name="last-name" id="last-name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="Engels" placeholder="Ex. Doe" required="">
+                    </div>
+                    <div>
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">aWCCR</label>
+                        <input type="password" name="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="" placeholder="•••••••••">
+                    </div>                        
+                </div>
+                <div class="flex items-center space-x-4">
+                    <!-- Modal toggle -->
+                <button data-modal-target="Simulation" data-modal-toggle="Simulation" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                    計算風險
+                </button>
+                </div>
+            </form>
+          </div>
       </div>
   </section>
 
+  <!-- risk pop up area -->
+  <!-- Simulation button -->
   <!-- Main modal -->
-<div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+<div id="Simulation" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-2xl max-h-full">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -142,7 +243,7 @@ onMounted(() => {
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                     Terms of Service
                 </h3>
-                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal">
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="Simulation">
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                     </svg>
@@ -160,8 +261,8 @@ onMounted(() => {
             </div>
             <!-- Modal footer -->
             <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                <button data-modal-hide="default-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I accept</button>
-                <button data-modal-hide="default-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Decline</button>
+                <button data-modal-hide="Simulation" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I accept</button>
+                <button data-modal-hide="Simulation" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Decline</button>
             </div>
         </div>
     </div>
