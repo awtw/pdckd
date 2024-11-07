@@ -59,10 +59,29 @@ function calculateRisk() {
     return Math.round(risk * 100) / 100;
 }
 
+function calculateGeneRisk() {
+    const score = BA.value * 4 + BS.value * 2 + BP.value * 1 + PP.value * -1 + PM.value * -2 + PS.value * -4 + PVS.value * -7;
+    if (score <= -11) {
+        return '超高風險';
+    } else if (score >= -10 && score <= -8) {
+        return '高風險';
+    } else if (score >= -7 && score <= -6) {
+        return '中高風險';
+    } else if (score >= -5 && score <= -2) {
+        return '中風險';
+    } else if (score >= -1 && score <= 1) {
+        return '中低風險';
+    } else if (score >= 2 && score <= 3) {
+        return '低風險';
+    } else {
+        return '超低風險';
+    }
+}
+
 </script>
 
 <template>
-    <section class="bg-white dark:bg-gray-900">
+    <section class="bg-customLightGray  dark:bg-gray-900">
       <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
           <div class="mr-auto place-self-center lg:col-span-7">
               <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">兒童腹膜透析預測模型</h1>
@@ -85,11 +104,11 @@ function calculateRisk() {
           </div>                
       </div>
   </section>
-  <section class="bg-white dark:bg-gray-900" id="section01">
+  <section class="bg-customLightGray dark:bg-gray-900" id="section01">
       <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
           <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
               <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">情境模擬專區</h2>
-              <section class="bg-white dark:bg-gray-900">
+              <section class="bg-customLightGray dark:bg-gray-900">
                 <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
                    
                     <p class="mb-8 lg:mb-16 font-light text-left text-gray-500 dark:text-gray-400 sm:text-xl">
@@ -135,7 +154,7 @@ function calculateRisk() {
           
       </div>
   </section>
-  <section class="bg-white dark:bg-gray-900">
+  <section class="bg-customLightGray dark:bg-gray-900">
       <div class="gap-16 items-start py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
           <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">公式計算</h2>
@@ -215,14 +234,14 @@ function calculateRisk() {
                 </div>
                 <div class="flex items-center space-x-4">
                     <!-- Modal toggle -->
-                <button data-modal-target="Simulation" data-modal-toggle="Simulation" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                <button data-modal-target="model" data-modal-toggle="model" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                     計算風險
                 </button>
                 </div>
             </form>
       </div>
   </section>
-  <section class="bg-white dark:bg-gray-900">
+  <section class="bg-customLightGray dark:bg-gray-900">
       <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
           
         <div class="grid grid-cols-2 gap-4 mt-8">
@@ -267,7 +286,7 @@ function calculateRisk() {
                 </div>
                 <div class="flex items-center space-x-4">
                     <!-- Modal toggle -->
-                <button data-modal-target="gene" data-modal-toggle="Simulation" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                <button data-modal-target="gene" data-modal-toggle="gene" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                     計算風險
                 </button>
                 </div>
@@ -277,51 +296,8 @@ function calculateRisk() {
   </section>
 
   <!-- risk pop up area -->
-  <!-- Simulation button -->
+  <!-- model button -->
   <!-- Main modal -->
-<div id="Simulation" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <div class="relative p-4 w-full max-w-2xl max-h-full">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <!-- Modal header -->
-            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                    Risk Calculation
-                </h3>
-                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="Simulation">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                    </svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
-            </div>
-            <!-- Modal body -->
-            <div class="p-4 md:p-5 space-y-4">
-                <!-- 這邊想要放一個計算風險的結果利用calculateRisk()這個function -->
-                <p :class="{'text-red-500': calculateRisk() > 0.5, 'text-green-500': calculateRisk() <= 0.5}" class="text-base leading-relaxed dark:text-gray-400">
-                    計算風險的結果是：{{ calculateRisk() }}
-                </p>
-                <p v-if="calculateRisk() > 0.5" class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                    高風險的人群應該注意保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
-                </p>
-                <p v-else class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                    低風險的人群應該保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
-                </p>
-
-
-                <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                    <strong>風險預測基於以下公式計算：</strong>
-                </p>
-                <img src="https://vueproject.s3.us-west-2.amazonaws.com/cal.png" alt="Risk Calculation Formula" class="mx-auto">
-            </div>
-            <!-- Modal footer -->
-            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                <button data-modal-hide="Simulation" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">OK</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- model -->
 <div id="model" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-2xl max-h-full">
         <!-- Modal content -->
@@ -340,6 +316,49 @@ function calculateRisk() {
             </div>
             <!-- Modal body -->
             <div class="p-4 md:p-5 space-y-4">
+                <!-- 這邊想要放一個計算風險的結果利用calculateRisk()這個function -->
+                <p :class="{'text-red-500': calculateRisk() > 0.5, 'text-green-500': calculateRisk() <= 0.5}" class="text-base leading-relaxed dark:text-gray-400">
+                    計算風險的結果是：{{ calculateRisk() }}
+                </p>
+                <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    高風險的人群應該注意保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
+                </p>
+                 <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    低風險的人群應該保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
+                </p>
+
+
+                <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    <strong>風險預測基於以下公式計算：</strong>
+                </p>
+                <img src="https://vueproject.s3.us-west-2.amazonaws.com/cal.png" alt="Risk Calculation Formula" class="mx-auto">
+            </div>
+            <!-- Modal footer -->
+            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                <button data-modal-hide="model" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Simulation -->
+<div id="Simulation" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-2xl max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                    Risk Calculation
+                </h3>
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="Simulation">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="p-4 md:p-5 space-y-4">
                 <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
                     With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
                 </p>
@@ -349,7 +368,7 @@ function calculateRisk() {
             </div>
             <!-- Modal footer -->
             <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                <button data-modal-hide="model" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">OK</button>
+                <button data-modal-hide="Simulation" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">OK</button>
             </div>
         </div>
     </div>
@@ -373,11 +392,30 @@ function calculateRisk() {
             </div>
             <!-- Modal body -->
             <div class="p-4 md:p-5 space-y-4">
-                <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                    With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
+                <!-- 這邊想要放一個計算風險的結果利用calculateRisk()這個function -->
+                <p :class="{'text-red-500': calculateGeneRisk() === '超高風險' || calculateGeneRisk() === '高風險', 'text-green-500': calculateGeneRisk() === '低風險' || calculateGeneRisk() === '超低風險'}" class="text-base leading-relaxed dark:text-gray-400">
+                    計算風險的結果是：{{ calculateGeneRisk() }}
                 </p>
-                <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                    The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
+                <p v-if="calculateGeneRisk() === '超高風險'" class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    超高風險的人群應該注意保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
+                </p>
+                <p v-else-if="calculateGeneRisk() === '高風險'" class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    高風險的人群應該保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
+                </p>
+                <p v-else-if="calculateGeneRisk() === '中高風險'" class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    中高風險的人群應該保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
+                </p>
+                <p v-else-if="calculateGeneRisk() === '中風險'" class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    中風險的人群應該保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
+                </p>
+                <p v-else-if="calculateGeneRisk() === '中低風險'" class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    中低風險的人群應該保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
+                </p>
+                <p v-else-if="calculateGeneRisk() === '低風險'" class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    低風險的人群應該保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
+                </p>
+                <p v-else class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    超低風險的人群應該保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
                 </p>
             </div>
             <!-- Modal footer -->

@@ -10,7 +10,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: {"50":"#eff6ff","100":"#dbeafe","200":"#bfdbfe","300":"#93c5fd","400":"#60a5fa","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e40af","900":"#1e3a8a","950":"#172554"}
+        primary: {"50":"#eff6ff","100":"#dbeafe","200":"#bfdbfe","300":"#93c5fd","400":"#60a5fa","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e40af","900":"#1e3a8a","950":"#172554"},
+        customLightBlue: '#dbeafe', // 添加自定義淺藍色
+        customBlue: '#3b82f6', // 添加自定義藍色
+        customDarkBlue: '#1d4ed8', // 添加自定義深藍色
+        customLightGreen: '#e6fffa', // 添加自定義淺綠色
+        customGreen: '#10b981', // 添加自定義綠色
+        customDarkGreen: '#065f46', // 添加自定義深綠色
+        customLightYellow: '#fef9c3', // 添加自定義淺黃色
+        customYellow: '#facc15', // 添加自定義黃色
+        customDarkYellow: '#ca8a04', // 添加自定義深黃色
+        customLightPink: '#fce7f3', // 添加自定義淺粉色
+        customPink: '#ec4899', // 添加自定義粉色
+        customDarkPink: '#be185d', // 添加自定義深粉色
+        customLightGray: '#f3f4f6' // 添加自定義淺灰色
       }
     },
     fontFamily: {
