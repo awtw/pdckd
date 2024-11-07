@@ -249,7 +249,17 @@ function calculateGeneRisk() {
           </div>
             
           <div class="font-light text-gray-500 sm:text-lg">
-              <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">精準基因分析</h2>
+              <div class="grid grid-cols-2 gap-4">
+                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">精準基因分析</h2>
+                <form class="max-w-xl">
+                    <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option selected>選擇預測風險</option>
+                        <option value="US">鈣化風險</option>
+                        <option value="CA">心臟病風險</option>
+                        <option value="FR">中風風險</option>
+                    </select>
+                </form>
+              </div>
               <form action="#">
                 <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-6">
                     <div>
