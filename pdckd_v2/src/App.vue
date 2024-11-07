@@ -332,8 +332,8 @@ function calculateGeneRisk() {
                 <img src="https://vueproject.s3.us-west-2.amazonaws.com/cal.png" alt="Risk Calculation Formula" class="mx-auto">
             </div>
             <!-- Modal footer -->
-            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                <button data-modal-hide="model" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">OK</button>
+            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+                <button data-modal-hide="model" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">OK</button>
             </div>
         </div>
     </div>
@@ -342,13 +342,13 @@ function calculateGeneRisk() {
 <div id="Simulation" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-2xl max-h-full">
         <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div class="relative bg-white rounded-lg shadow">
             <!-- Modal header -->
-            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
                 <h3 class="text-xl font-semibold text-gray-900">
                     Risk Calculation
                 </h3>
-                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="Simulation">
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="Simulation">
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                     </svg>
@@ -365,8 +365,8 @@ function calculateGeneRisk() {
                 </p>
             </div>
             <!-- Modal footer -->
-            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                <button data-modal-hide="Simulation" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">OK</button>
+            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+                <button data-modal-hide="Simulation" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">OK</button>
             </div>
         </div>
     </div>
@@ -375,13 +375,13 @@ function calculateGeneRisk() {
 <div id="gene" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-2xl max-h-full">
         <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div class="relative bg-white rounded-lg shadow">
             <!-- Modal header -->
-            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
                 <h3 class="text-xl font-semibold text-gray-900">
                     Risk Calculation
                 </h3>
-                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="gene">
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="gene">
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                     </svg>
@@ -396,31 +396,31 @@ function calculateGeneRisk() {
                     計算心臟病風險的結果是：{{ geneRisk }} <br>
                     計算中風風險的結果是：{{ geneRisk }} <br>
                 </p>
-                <p v-if="geneRisk === '超高風險'" class="text-base leading-relaxed text-red-500 dark:text-red-400">
+                <p v-if="geneRisk === '超高風險'" class="text-base leading-relaxed text-red-500">
                     超高風險的人群應該注意保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
                 </p>
-                <p v-else-if="geneRisk === '高風險'" class="text-base leading-relaxed text-red-500 dark:text-red-400">
+                <p v-else-if="geneRisk === '高風險'" class="text-base leading-relaxed text-red-500">
                     高風險的人群應該保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
                 </p>
-                <p v-else-if="geneRisk === '中高風險'" class="text-base leading-relaxed text-yellow-500 dark:text-yellow-400">
+                <p v-else-if="geneRisk === '中高風險'" class="text-base leading-relaxed text-yellow-500">
                     中高風險的人群應該保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
                 </p>
-                <p v-else-if="geneRisk === '中風險'" class="text-base leading-relaxed text-yellow-500 dark:text-yellow-400">
+                <p v-else-if="geneRisk === '中風險'" class="text-base leading-relaxed text-yellow-500">
                     中風險的人群應該保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
                 </p>
-                <p v-else-if="geneRisk === '中低風險'" class="text-base leading-relaxed text-green-500 dark:text-green-400">
+                <p v-else-if="geneRisk === '中低風險'" class="text-base leading-relaxed text-green-500">
                     中低風險的人群應該保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
                 </p>
-                <p v-else-if="geneRisk === '低風險'" class="text-base leading-relaxed text-green-500 dark:text-green-400">
+                <p v-else-if="geneRisk === '低風險'" class="text-base leading-relaxed text-green-500">
                     低風險的人群應該保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
                 </p>
-                <p v-else-if="geneRisk === '超低風險'" class="text-base leading-relaxed text-green-500 dark:text-green-400">
+                <p v-else-if="geneRisk === '超低風險'" class="text-base leading-relaxed text-green-500">
                     超低風險的人群應該保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
                 </p>
             </div>
             <!-- Modal footer -->
-            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                <button data-modal-hide="gene" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">OK</button>
+            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+                <button data-modal-hide="gene" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">OK</button>
             </div>
         </div>
     </div>
