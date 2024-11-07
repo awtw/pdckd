@@ -24,10 +24,10 @@ export default {
         customPink: '#ec4899', // 添加自定義粉色
         customDarkPink: '#be185d', // 添加自定義深粉色
         customLightGray: '#f3f4f6', // 添加自定義淺灰色
-        customHeader: '#D2E0FB', // 添加自定義 Header 背景色
-        customSimulation: '#FEF9D9', // 添加自定義 Simulation 背景色
-        customCalculation: '#DEE5D4', // 添加自定義 Calculation 背景色
-        customGeneAnalysis: '#8EACCD', // 添加自定義 Gene Analysis 背景色
+        customHeader: '#F6F5F2', // 添加自定義 Header 背景色
+        customSimulation: '#F0EBE3', // 添加自定義 Simulation 背景色
+        customCalculation: '#F3D0D7', // 添加自定義 Calculation 背景色
+        customGeneAnalysis: '#FFEFEF', // 添加自定義 Gene Analysis 背景色
       }
     },
     fontFamily: {
