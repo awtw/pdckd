@@ -98,7 +98,7 @@ function calculateGeneRisk() {
             
           </div>
           <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-              <img src="https://vueproject.s3.us-west-2.amazonaws.com/boby.jpg" alt="mockup">
+              <img src="https://vueproject.s3.us-west-2.amazonaws.com/analysis.jpg" alt="mockup">
           </div>                
       </div>
   </section>
@@ -146,7 +146,7 @@ function calculateGeneRisk() {
           </div>
           <div class="grid grid-cols-2 gap-4 mt-8">
                 <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-              <img src="https://vueproject.s3.us-west-2.amazonaws.com/test.jpg" alt="mockup">
+              <img src="https://vueproject.s3.us-west-2.amazonaws.com/learn.jpg" alt="mockup">
                 </div>
           </div>
           
