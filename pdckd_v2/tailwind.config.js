@@ -23,7 +23,11 @@ export default {
         customLightPink: '#fce7f3', // 添加自定義淺粉色
         customPink: '#ec4899', // 添加自定義粉色
         customDarkPink: '#be185d', // 添加自定義深粉色
-        customLightGray: '#f3f4f6' // 添加自定義淺灰色
+        customLightGray: '#f3f4f6', // 添加自定義淺灰色
+        customHeader: '#B3C8CF', // 添加自定義 Header 背景色
+        customSimulation: '#BED7DC', // 添加自定義 Simulation 背景色
+        customCalculation: '#F1EEDC', // 添加自定義 Calculation 背景色
+        customGeneAnalysis: '#E5DDC5', // 添加自定義 Gene Analysis 背景色
       }
     },
     fontFamily: {

@@ -79,7 +79,7 @@ function calculateGeneRisk() {
 </script>
 
 <template>
-    <section class="bg-customLightBlue  dark:bg-gray-900">
+    <section class="bg-customHeader  dark:bg-gray-900">
       <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
           <div class="mr-auto place-self-center lg:col-span-7">
               <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">兒童腹膜透析預測模型</h1>
@@ -102,11 +102,11 @@ function calculateGeneRisk() {
           </div>                
       </div>
   </section>
-  <section class="bg-customLightGray dark:bg-gray-900" id="section01">
+  <section class="bg-customSimulation dark:bg-gray-900" id="section01">
       <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
           <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
               <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">情境模擬專區</h2>
-              <section class="bg-customLightGray dark:bg-gray-900">
+              <section class="bg-customSimulation dark:bg-gray-900">
                 <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
                    
                     <p class="mb-8 lg:mb-16 font-light text-left text-gray-500 dark:text-gray-400 sm:text-xl">
@@ -152,7 +152,7 @@ function calculateGeneRisk() {
           
       </div>
   </section>
-  <section class="bg-customLightGray dark:bg-gray-900">
+  <section class="bg-customCalculation dark:bg-gray-900">
       <div class="gap-16 items-start py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
           <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">公式計算</h2>
@@ -239,7 +239,7 @@ function calculateGeneRisk() {
             </form>
       </div>
   </section>
-  <section class="bg-customLightGray dark:bg-gray-900">
+  <section class="bg-customGeneAnalysis dark:bg-gray-900">
       <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
           
         <div class="grid grid-cols-2 gap-4 mt-8">
