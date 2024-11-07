@@ -92,7 +92,15 @@ function calculateGeneRisk() {
                 析智能教育系統。
               </p>
               <a href="#section01" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
-                  開始測驗 
+                  情境模擬測驗 
+                  <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+              </a>
+               <a href="#section02" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
+                  腹膜功能預測 
+                  <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+              </a>
+               <a href="#section03" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
+                  精準基因併發症風險
                   <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
               </a>
             
@@ -105,7 +113,7 @@ function calculateGeneRisk() {
   <section class="bg-customSimulation " id="section01">
       <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
           <div class="font-light text-gray-500 sm:text-lg">
-              <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">情境模擬專區</h2>
+              <h2 class="mb-4 text-3xl tracking-tight font-extrabold text-gray-900">情境模擬專區</h2>
               <section class="bg-customSimulation ">
                 <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
                    
@@ -152,10 +160,10 @@ function calculateGeneRisk() {
           
       </div>
   </section>
-  <section class="bg-customCalculation">
+  <section class="bg-customCalculation" id="section02">
       <div class="gap-16 items-start py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
           <div class="font-light text-gray-500 sm:text-lg">
-            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">公式計算</h2>
+            <h2 class="mb-4 text-3xl tracking-tight font-extrabold text-gray-900">腹膜功能預測</h2>
             <p class="mb-4">
                 <strong class="font-extrabold text-lg">PD-PET Trends Group Models 和 Canonical Analysis 是在資料分析中常用的技術，用於從多變數資料中提取關鍵趨勢，並分析不同變數之間的關聯性。這些方法特別適合用於處理大量且複雜的資料，並將資料中潛在的模式視覺化，幫助識別關鍵的趨勢和異常。</strong>
             </p>
@@ -239,7 +247,7 @@ function calculateGeneRisk() {
             </form>
       </div>
   </section>
-  <section class="bg-customGeneAnalysis">
+  <section class="bg-customGeneAnalysis" id="section03">
       <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
           
         <div class="grid grid-cols-2 gap-4 mt-8">
@@ -249,8 +257,8 @@ function calculateGeneRisk() {
           </div>
             
           <div class="font-light text-gray-500 sm:text-lg">
-              <div class="grid grid-cols-2 gap-4">
-                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">精準基因分析</h2>
+              <div class="grid grid-cols-2 gap-2">
+                <h2 class="mb-4 text-3xl tracking-tight font-extrabold text-gray-900">精準基因併發症風險</h2>
                 <form class="max-w-xl">
                     <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                         <option selected>選擇預測風險</option>
