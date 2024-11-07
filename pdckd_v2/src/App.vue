@@ -1,5 +1,18 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import { 
+    initAccordions, 
+    initCarousels, 
+    initCollapses, 
+    initDials, 
+    initDismisses, 
+    initDrawers, 
+    initDropdowns, 
+    initModals, 
+    initPopovers, 
+    initTabs, 
+    initTooltips } from 'flowbite'
+
 // 設定 variables for 所有 input
 const ID = ref('');
 const countries = ref('');
@@ -23,21 +36,7 @@ const PM = ref(0);
 const PS = ref(0);
 const PVS = ref(0);
 
-
-
-import { onMounted } from 'vue'
-import { 
-    initAccordions, 
-    initCarousels, 
-    initCollapses, 
-    initDials, 
-    initDismisses, 
-    initDrawers, 
-    initDropdowns, 
-    initModals, 
-    initPopovers, 
-    initTabs, 
-    initTooltips } from 'flowbite'
+const geneRisk = ref('');
 
 // initialize components based on data attribute selectors
 onMounted(() => {
@@ -59,29 +58,28 @@ function calculateRisk() {
     return Math.round(risk * 100) / 100;
 }
 
-function calculateGeneRisk() {
+function calculateGeneRisk() {    
     const score = BA.value * 4 + BS.value * 2 + BP.value * 1 + PP.value * -1 + PM.value * -2 + PS.value * -4 + PVS.value * -7;
     if (score <= -11) {
-        return '超高風險';
+        geneRisk.value = '超高風險';
     } else if (score >= -10 && score <= -8) {
-        return '高風險';
+        geneRisk.value = '高風險';
     } else if (score >= -7 && score <= -6) {
-        return '中高風險';
+        geneRisk.value = '中高風險';
     } else if (score >= -5 && score <= -2) {
-        return '中風險';
+        geneRisk.value = '中風險';
     } else if (score >= -1 && score <= 1) {
-        return '中低風險';
+        geneRisk.value = '中低風險';
     } else if (score >= 2 && score <= 3) {
-        return '低風險';
+        geneRisk.value = '低風險';
     } else {
-        return '超低風險';
+        geneRisk.value = '超低風險';
     }
 }
-
 </script>
 
 <template>
-    <section class="bg-customLightGray  dark:bg-gray-900">
+    <section class="bg-customLightBlue  dark:bg-gray-900">
       <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
           <div class="mr-auto place-self-center lg:col-span-7">
               <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">兒童腹膜透析預測模型</h1>
@@ -227,10 +225,10 @@ function calculateGeneRisk() {
                         <label for="ENDnew3" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ENDnew3</label>
                         <input type="number" name="ENDnew3" id="ENDnew3" v-model="ENDnew3" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required>
                     </div>                        
-                    <div>
+                    <!-- <div>
                         <label for="bKTV" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">bKTV</label>
                         <input type="number" name="bKTV" id="bKTV" v-model="bKTV" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                    </div>
+                    </div> -->
                 </div>
                 <div class="flex items-center space-x-4">
                     <!-- Modal toggle -->
@@ -286,7 +284,7 @@ function calculateGeneRisk() {
                 </div>
                 <div class="flex items-center space-x-4">
                     <!-- Modal toggle -->
-                <button data-modal-target="gene" data-modal-toggle="gene" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                <button @click="calculateGeneRisk" data-modal-target="gene" data-modal-toggle="gene" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                     計算風險
                 </button>
                 </div>
@@ -392,29 +390,31 @@ function calculateGeneRisk() {
             </div>
             <!-- Modal body -->
             <div class="p-4 md:p-5 space-y-4">
-                <!-- 這邊想要放一個計算風險的結果利用calculateRisk()這個function -->
-                <p :class="{'text-red-500': calculateGeneRisk() === '超高風險' || calculateGeneRisk() === '高風險', 'text-green-500': calculateGeneRisk() === '低風險' || calculateGeneRisk() === '超低風險'}" class="text-base leading-relaxed dark:text-gray-400">
-                    計算風險的結果是：{{ calculateGeneRisk() }}
+                <!-- 這邊想要放一個計算風險的結果利用calculateGeneRisk()這個function -->
+                <p :class="{'text-red-500': geneRisk === '超高風險' || geneRisk === '高風險', 'text-green-500': geneRisk === '低風險' || geneRisk === '超低風險'}" class="text-base leading-relaxed dark:text-gray-400">
+                    計算鈣化風險的結果是：{{ geneRisk }} <br>
+                    計算心臟病風險的結果是：{{ geneRisk }} <br>
+                    計算中風風險的結果是：{{ geneRisk }} <br>
                 </p>
-                <p v-if="calculateGeneRisk() === '超高風險'" class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                <p v-if="geneRisk === '超高風險'" class="text-base leading-relaxed text-red-500 dark:text-red-400">
                     超高風險的人群應該注意保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
                 </p>
-                <p v-else-if="calculateGeneRisk() === '高風險'" class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                <p v-else-if="geneRisk === '高風險'" class="text-base leading-relaxed text-red-500 dark:text-red-400">
                     高風險的人群應該保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
                 </p>
-                <p v-else-if="calculateGeneRisk() === '中高風險'" class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                <p v-else-if="geneRisk === '中高風險'" class="text-base leading-relaxed text-yellow-500 dark:text-yellow-400">
                     中高風險的人群應該保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
                 </p>
-                <p v-else-if="calculateGeneRisk() === '中風險'" class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                <p v-else-if="geneRisk === '中風險'" class="text-base leading-relaxed text-yellow-500 dark:text-yellow-400">
                     中風險的人群應該保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
                 </p>
-                <p v-else-if="calculateGeneRisk() === '中低風險'" class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                <p v-else-if="geneRisk === '中低風險'" class="text-base leading-relaxed text-green-500 dark:text-green-400">
                     中低風險的人群應該保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
                 </p>
-                <p v-else-if="calculateGeneRisk() === '低風險'" class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                <p v-else-if="geneRisk === '低風險'" class="text-base leading-relaxed text-green-500 dark:text-green-400">
                     低風險的人群應該保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
                 </p>
-                <p v-else class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                <p v-else-if="geneRisk === '超低風險'" class="text-base leading-relaxed text-green-500 dark:text-green-400">
                     超低風險的人群應該保持健康生活方式，定期檢查身體狀況，並遵循醫生的建議進行治療。
                 </p>
             </div>
