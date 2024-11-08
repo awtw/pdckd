@@ -36,7 +36,24 @@ const PM = ref(0);
 const PS = ref(0);
 const PVS = ref(0);
 
+const blood = ref(0);
+const pdRisk = ref(0);
+
+const heart = ref(0);
+const urine = ref(0);
+const bloodPressure = ref(0);
+const cholesterol = ref(0);
+
+
 const geneRisk = ref('');
+
+const geneRiskList = ref([
+    { value: '鈣化風險' },
+    { value: '心臟病風險' },
+    { value: '中風風險'}
+]);
+
+const geneSelectRisk = ref('鈣化風險');
 
 // initialize components based on data attribute selectors
 onMounted(() => {
@@ -91,7 +108,8 @@ function calculateGeneRisk() {
                 成個人化的沉浸式智能互動學習，以五大特色建構創新之精準兒童腹膜透
                 析智能教育系統。
               </p>
-              <a href="#section01" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
+              <div class="flex flex-auto">
+                <a href="#section01" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
                   情境模擬測驗 
                   <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
               </a>
@@ -103,12 +121,19 @@ function calculateGeneRisk() {
                   精準基因併發症風險
                   <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
               </a>
+              </div>
             
           </div>
           <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
               <img src="https://vueproject.s3.us-west-2.amazonaws.com/analysis.jpg" alt="mockup">
           </div>                
       </div>
+  </section>
+  <section class="bg-white " id="section00">
+    <div class="p-8">
+        <label for="ID" class="block mb-2 text-3xl font-medium text-gray-900 "><strong>病歷號</strong></label>
+        <input type="text" name="ID" id="ID" v-model="ID" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-1/2 p-2.5" required>
+    </div>
   </section>
   <section class="bg-customSimulation " id="section01">
       <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
@@ -260,46 +285,82 @@ function calculateGeneRisk() {
               <div class="grid grid-cols-2 gap-2">
                 <h2 class="mb-4 text-3xl tracking-tight font-extrabold text-gray-900">精準基因併發症風險</h2>
                 <form class="max-w-xl">
-                    <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                        <option selected>選擇預測風險</option>
-                        <option value="US">鈣化風險</option>
-                        <option value="CA">心臟病風險</option>
-                        <option value="FR">中風風險</option>
+                    <select id="countries" v-model="geneSelectRisk" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option v-for="risk in geneRiskList" :key="risk.value" :value="risk.value">{{ risk.value }}</option>
                     </select>
                 </form>
               </div>
               <form action="#">
                 <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-6">
+                    <!-- 基因風險 -->
                     <div>
                         <label for="BA" class="block mb-2 text-sm font-medium text-gray-900">BA</label>
                         <input type="number" id="BA" v-model="BA" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
-                    
                     </div>
                     <div>
                         <label for="BS" class="block mb-2 text-sm font-medium text-gray-900">BS</label>
-                        <input type="number" id="BS" v-model="BS" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  required />
+                        <input type="number" id="BS" v-model="BS" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                     </div>
                     <div>
                         <label for="BP" class="block mb-2 text-sm font-medium text-gray-900">BP</label>
-                        <input type="number" id="BP" v-model="BP" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  required />
+                        <input type="number" id="BP" v-model="BP" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                     </div>
                     <div>
                         <label for="PP" class="block mb-2 text-sm font-medium text-gray-900">PP</label>
-                        <input type="number" id="PP" v-model="PP" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  required />
+                        <input type="number" id="PP" v-model="PP" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                     </div>
                     <div>
                         <label for="PM" class="block mb-2 text-sm font-medium text-gray-900">PM</label>
-                        <input type="number" id="PM" v-model="PM" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  required />
+                        <input type="number" id="PM" v-model="PM" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                     </div>
                     <div>
                         <label for="PS" class="block mb-2 text-sm font-medium text-gray-900">PS</label>
-                        <input type="number" id="PS" v-model="PS" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  required />
+                        <input type="number" id="PS" v-model="PS" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                     </div>
                     <div>
                         <label for="PVS" class="block mb-2 text-sm font-medium text-gray-900">PVS</label>
-                        <input type="number" id="PVS" v-model="PVS" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  required />
-                    </div>                 
+                        <input type="number" id="PVS" v-model="PVS" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                    </div>
+                    <div v-if="geneSelectRisk === '鈣化風險'">
+                        <div>
+                            <label for="blood" class="block mb-2 text-sm font-medium text-gray-900">血鈣</label>
+                            <input type="number" id="blood" v-model="blood" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                        </div>
+                        <div>
+                            <label for="pdRisk" class="block mb-2 text-sm font-medium text-gray-900">腹膜炎發生機率</label>
+                            <input type="number" id="pdRisk" v-model="pdRisk" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                        </div>
+                    </div>
+                    <!-- 心臟病風險 -->
+                    <div v-if="geneSelectRisk === '心臟病風險'">
+                        <div>
+                            <label for="heart" class="block mb-2 text-sm font-medium text-gray-900">心肌酵素</label>
+                            <input type="number" id="heart" v-model="heart" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                        </div>
+                        <div>
+                            <label for="urine" class="block mb-2 text-sm font-medium text-gray-900">尿酸</label>
+                            <input type="number" id="urine" v-model="urine" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                        </div>
+                        <div>
+                            <label for="bloodPressure" class="block mb-2 text-sm font-medium text-gray-900">血壓</label>
+                            <input type="number" id="bloodPressure" v-model="bloodPressure" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                        </div>
+                    </div>
+                    <!-- 中風風險 -->
+                    <div v-if="geneSelectRisk === '中風風險'">
+                        <div>
+                            <label for="cholesterol" class="block mb-2 text-sm font-medium text-gray-900">膽固醇</label>
+                            <input type="number" id="cholesterol" v-model="cholesterol" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                        </div>
+                        <div>
+                            <label for="bloodPressure" class="block mb-2 text-sm font-medium text-gray-900">血壓</label>
+                            <input type="number" id="bloodPressure" v-model="bloodPressure" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                        </div>
+                    </div>
                 </div>
+
+
+
                 <div class="flex items-center space-x-4">
                     <!-- Modal toggle -->
                 <button @click="calculateGeneRisk" data-modal-target="gene" data-modal-toggle="gene" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
